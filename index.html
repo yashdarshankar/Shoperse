@@ -95,7 +95,6 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           gameInstance = unityInstance;
-          console.log(gameInstance);
         //   const message = "some text";
         //   unityInstance.SendMessage(
         //     "[Bridge]",
@@ -156,14 +155,14 @@ if (err) { console.error(err); return; }
         const message = AvatarOfUser;
          // Clear the input field
         //  txtMessage.value = "";
-        console.log(gameInstance);
+        console.log(message);
          // Send message to the Unity scene
          // Params: "Target object in the scene", "Function name", "Parameters"
-        gameInstance.SendMessage(
+         gameInstance.SendMessage(
             "[Bridge]",
             "ReceiveMessageFromPage",
-            AvatarOfUser
-        );
+            message
+         );
       }
    </script>
   </body>
