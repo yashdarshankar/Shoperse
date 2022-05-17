@@ -129,7 +129,7 @@
         console.log("this is the user id" + txt);
          base('Table 1').select({
         maxRecords: 1,
-        filterByFormula: "({UserID} = txt)"
+        filterByFormula: "{UserID} = txt"
         }).firstPage(function(err,records){
            if(err){
              console.error(err); return; }
