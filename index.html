@@ -130,8 +130,9 @@
          base('Table 1').select({
         // Selecting the first 3 records in Grid view:
         filterByFormula: txt
-        }).eachPage(function page(records, fetchNextPage) {
-        // This function (`page`) will get called for each page of records.
+        }).firstPage(function(err,records){
+           if(err){
+             console.error(err); return; }
 
         records.forEach( async function(record) {
         NameOfUser = record.get('Name');
