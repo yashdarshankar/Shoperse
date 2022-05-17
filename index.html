@@ -126,6 +126,7 @@
         var Airtable = require('airtable');
         var base = new Airtable({apiKey: 'key638uMDOhThTkcO'}).base('apppAxwZkdH86oRdx');
         
+        console.log("this is the user id" + txt);
          base('Table 1').select({
         // Selecting the first 3 records in Grid view:
         filterByFormula: txt
