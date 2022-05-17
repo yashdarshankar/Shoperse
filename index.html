@@ -128,7 +128,7 @@
         
         console.log("this is the user id" + txt);
          base('Table 1').select({
-        // Selecting the first 3 records in Grid view:
+        maxRecords: 1,
         filterByFormula: txt
         }).firstPage(function(err,records){
            if(err){
@@ -142,8 +142,6 @@
         
         });
         sendMessageToUnity();
-        fetchNextPage();
-        
 
 }, function done(err) {
 if (err) { console.error(err); return; }
