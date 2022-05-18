@@ -132,14 +132,14 @@
         filterByFormula:{UserID}=`${txt}`
         }).firstPage(function(err,records){
 
-        records.forEach( async function(record) {
+        records.forEach( function(record) {
         NameOfUser = record.get('Name');
         AvatarOfUser = record.get('URL');
         recordOfUser = record.getId();
         console.log(AvatarOfUser);
-        
-        });
         sendMessageToUnity();
+        });
+        
 
 }, function done(err) {
 if (err) { console.error(err); return; }
