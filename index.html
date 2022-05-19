@@ -163,6 +163,12 @@ if (err) { console.error(err); return; }
             message
          );
       }
+
+      function receivePopupFromUnity(url){
+        var frame = document.getElementById("frame");
+        frame.src = url;
+      }
    </script>
+   <iframe id="frame" src=""></iframe>
   </body>
 </html>
