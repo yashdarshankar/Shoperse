@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | WebGL Page Communication</title>
+    <title>Unity WebGL Player | Shoperse</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">WebGL Page Communication</div>
+        <div id="unity-build-title">Shoperse</div>
       </div>
     </div>
     <script src="airtable.js" ></script>
@@ -104,7 +104,7 @@
          
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
+            unityInstance.SetFullscreen(1)
           };
         }).catch((message) => {
           alert(message);
@@ -129,7 +129,7 @@
         console.log("this is the user id" + txt);
          base('Table 1').select({
         maxRecords: 1,
-        filterByFormula:{UserID}=`${txt}`
+        filterByFormula:`UserID="${txt}"`
         }).firstPage(function(err,records){
 
         records.forEach( function(record) {
@@ -166,9 +166,21 @@ if (err) { console.error(err); return; }
 
       function receivePopupFromUnity(url){
         var frame = document.getElementById("frame");
+        
+        var popup = document.getElementById("popup");
+        popup.style.visibility="visible";
         frame.src = url;
       }
+
+      function ClosePopup(){
+        var popup = document.getElementById("popup");
+        popup.style.visibility="hidden";
+      }
    </script>
-   <iframe id="frame" src=""></iframe>
+    <div id="popup" class="popup">
+      <iframe id="frame" src="" style="position:fixed; height: 400px; width:580px;"></iframe>
+      <button id="popupclose" onclick="ClosePopup()" style="z-index: 1; transform: translateY(220px);">Close</button>
+    </div>
   </body>
 </html>
+
