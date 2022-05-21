@@ -83,8 +83,8 @@
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = "100vw";
+        canvas.style.height = "100vh";
       }
       loadingBar.style.display = "block";
       var gameInstance;
@@ -112,6 +112,7 @@
       };
       document.body.appendChild(script);
     </script>
+
     <script>
       var NameOfUser;
       var recordOfUser;
@@ -127,26 +128,24 @@
         var base = new Airtable({apiKey: 'key638uMDOhThTkcO'}).base('apppAxwZkdH86oRdx');
         
         console.log("this is the user id" + txt);
-         base('Table 1').select({
-        maxRecords: 1,
+        base('Table 1').select({
+        pageSize:1,
         filterByFormula:`UserID="${txt}"`
-        }).firstPage(function(err,records){
-
+        }).firstPage(
+        function(err,records){
         records.forEach( function(record) {
         NameOfUser = record.get('Name');
         AvatarOfUser = record.get('URL');
         recordOfUser = record.getId();
         console.log(AvatarOfUser);
         sendMessageToUnity();
-        return;
-        });
         
-
+        });
 }, function done(err) {
 if (err) { console.error(err); return; }
+
 });
       }
-
       // Function which sends the message to Unity
       function sendMessageToUnity() {
          // Get the input field
@@ -156,6 +155,7 @@ if (err) { console.error(err); return; }
          // Clear the input field
         //  txtMessage.value = "";
         console.log(message);
+        
          // Send message to the Unity scene
          // Params: "Target object in the scene", "Function name", "Parameters"
          gameInstance.SendMessage(
