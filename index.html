@@ -63,8 +63,8 @@
         frameworkUrl: buildUrl + "/Builds.framework.js.br",
         codeUrl: buildUrl + "/Builds.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "WebGL Page Communication",
+        companyName: "Shoperse Think Strategy",
+        productName: "Shoperse",
         productVersion: "0.1",
         showBanner: unityShowBanner,
       };
@@ -95,7 +95,13 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           gameInstance = unityInstance;
-                
+        //   const message = "some text";
+        //   unityInstance.SendMessage(
+        //     "[Bridge]",
+        //     "ReceiveMessageFromPage",
+        //     message
+        //  );
+         
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1)
