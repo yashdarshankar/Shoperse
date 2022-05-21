@@ -83,8 +83,8 @@
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = "100vw";
+        canvas.style.height = "100vh";
       }
       loadingBar.style.display = "block";
       var gameInstance;
@@ -95,13 +95,7 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           gameInstance = unityInstance;
-        //   const message = "some text";
-        //   unityInstance.SendMessage(
-        //     "[Bridge]",
-        //     "ReceiveMessageFromPage",
-        //     message
-        //  );
-         
+                
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1)
