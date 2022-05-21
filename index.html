@@ -83,8 +83,8 @@
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        canvas.style.width = "100vw";
-        canvas.style.height = "100vh";
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
       loadingBar.style.display = "block";
       var gameInstance;
@@ -130,7 +130,7 @@
          base('Table 1').select({
         maxRecords: 1,
         filterByFormula:`UserID="${txt}"`
-        }).firstPage(function(err,records){
+        }).eachPage(function(err,records){
 
         records.forEach( function(record) {
         NameOfUser = record.get('Name');
