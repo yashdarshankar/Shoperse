@@ -130,7 +130,7 @@
          base('Table 1').select({
         maxRecords: 1,
         filterByFormula:`UserID="${txt}"`
-        }).eachPage(function(err,records){
+        }).firstPage(function(err,records){
 
         records.forEach( function(record) {
         NameOfUser = record.get('Name');
@@ -138,6 +138,7 @@
         recordOfUser = record.getId();
         console.log(AvatarOfUser);
         sendMessageToUnity();
+        return;
         });
         
 
